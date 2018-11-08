@@ -1,6 +1,8 @@
-package br.edu.ifpb.domain;
+package br.edu.ifpb.web.servlet;
 
-import br.edu.ifpb.infra.ClientesEmJDBC;
+import br.edu.ifpb.domain.Cliente;
+import br.edu.ifpb.domain.Clientes;
+import br.edu.ifpb.infra.ClientesEmMemoria;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "ControladorDeClientes", urlPatterns = {"/clientes"})
 public class ControladorDeClientes extends HttpServlet {
 
-//    private Clientes clientes = new ClientesEmMemoria();
-    private Clientes clientes = new ClientesEmJDBC();
+    private Clientes clientes = new ClientesEmMemoria();
+//    private Clientes clientes = new ClientesEmJDBC();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -40,17 +42,18 @@ public class ControladorDeClientes extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // tratamento da requisição
         String cpf = req.getParameter("cpf");
         String nome = req.getParameter("nome");
-        
+
         Cliente cliente = new Cliente(nome, cpf);
-        
+        // executar a lógica de negocio
         this.clientes.novo(cliente);
-        
+
+        // redirecionar o usuario
         resp.sendRedirect(req.getRequestURI());
     }
 
-    
     private void imprimir(PrintWriter out) {
         this.clientes.todosOsClientes()
                 .forEach(

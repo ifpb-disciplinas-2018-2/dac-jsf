@@ -5,6 +5,8 @@ import br.edu.ifpb.domain.Cliente;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Predicate;
 
 /**
  * @author Ricardo Job
@@ -14,6 +16,7 @@ import java.util.List;
 public class ClientesEmMemoria implements Clientes {
 
     private static final List<Cliente> lista = new ArrayList<>();
+    private AtomicInteger conut = new AtomicInteger(3);
 
     public ClientesEmMemoria() {
         lista.addAll(
@@ -28,11 +31,29 @@ public class ClientesEmMemoria implements Clientes {
 
     @Override
     public List<Cliente> todosOsClientes() {
-        return lista; 
+        return lista;
     }
 
     @Override
     public void novo(Cliente cliente) {
+        cliente.setId(conut.incrementAndGet());
         this.lista.add(cliente);
+    }
+
+    @Override
+    public void remover(Cliente cli) {
+        this.lista.remove(cli);
+    }
+
+    @Override
+    public void atualizar(Cliente cliente) {
+        this.lista.removeIf(new Predicate<Cliente>() {
+            @Override
+            public boolean test(Cliente c) {
+                return c.getId()==cliente.getId();
+            }
+        });
+        this.lista.add(cliente);
+//        this.lista.removeIf(c -> cliente.getId() == c.getId());
     }
 }

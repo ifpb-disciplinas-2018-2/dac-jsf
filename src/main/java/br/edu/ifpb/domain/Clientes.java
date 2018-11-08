@@ -13,5 +13,9 @@ public interface Clientes {
     void novo(Cliente cliente);
 
     List<Cliente> todosOsClientes();
+
+    public void remover(Cliente cli);
+
+    public void atualizar(Cliente cliente);
     
 }

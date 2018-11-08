@@ -80,4 +80,14 @@ public class ClientesEmJDBC implements Clientes {
 
     }
 
+    @Override
+    public void remover(Cliente cli) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void atualizar(Cliente cliente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

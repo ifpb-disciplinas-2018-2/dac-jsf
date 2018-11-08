@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 docker build -t ricardojob/banco ./postgres
 docker run -p 5433:5432  --name banco  -d ricardojob/banco 
 mvn clean package

@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 docker kill app
 docker rm app
 docker rmi ricardojob/app

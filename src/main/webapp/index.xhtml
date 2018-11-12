@@ -6,6 +6,7 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Facelet Title</title>
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body>
 
@@ -17,8 +18,23 @@
 
         <h:form>
             Id <h:inputText value="#{controlodorDeClientes.cliente.id}" disabled="true"/>
-            Nome: <h:inputText value="#{controlodorDeClientes.cliente.nome}"/>
-            CPF: <h:inputText value="#{controlodorDeClientes.cliente.cpf}"/>
+            Nome: <h:inputText value="#{controlodorDeClientes.cliente.nome}" class="blue-grey"/>
+            CPF: <h:inputText value="#{controlodorDeClientes.cliente.cpf}"
+                              converter="converter.CPF"
+                              />
+<!--                          converter="convert.CPF"
+                         validator="validator.CPF"     -->
+                              
+
+<!--        <h:selectOneMenu value="{controladorDeIntegrante.integrante.endereco}" 
+                             converter="convert.Endereco"
+                             class="blue">
+                <f:selectItems value="{controladorDeIntegrante.listarTodosOsEnderecos()}"
+                               var="endereco"
+                               itemLabel="{endereco.rua}"
+                               class="blue-grey"/>
+            </h:selectOneMenu>-->
+
             <h:commandButton value="salvar" action="#{controlodorDeClientes.salvar()}" rendered="#{not controlodorDeClientes.editando}"/>
             <h:commandButton value="cancelar" action="#{controlodorDeClientes.cancelar()}"/>
             <h:commandButton value="atualizar" action="#{controlodorDeClientes.atualizar()}" rendered="#{controlodorDeClientes.editando}"/>
@@ -31,7 +47,7 @@
         <h:form>
             <h:dataTable var="c" value="#{controlodorDeClientes.todos()}">
                 <h:column>#{c.id}</h:column>
-                <h:column>#{c.cpf}</h:column>
+                <h:column>#{c.cpf.formatado()}</h:column>
                 <h:column>#{c.nome}</h:column>
                 <h:column>
                     <h:commandButton value="x" action="#{controlodorDeClientes.remover(c)}" />

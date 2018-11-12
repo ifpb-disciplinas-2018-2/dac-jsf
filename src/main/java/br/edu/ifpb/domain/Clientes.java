@@ -17,5 +17,8 @@ public interface Clientes {
     public void remover(Cliente cli);
 
     public void atualizar(Cliente cliente);
+//    public List<Endereco> todosOsEnderecos();
+    // public Endereco localizarEnderecoComRua(String rua);
+
     
 }

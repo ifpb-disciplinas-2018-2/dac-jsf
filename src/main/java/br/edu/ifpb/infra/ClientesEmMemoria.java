@@ -21,9 +21,9 @@ public class ClientesEmMemoria implements Clientes {
     public ClientesEmMemoria() {
         lista.addAll(
                 Arrays.asList(
-                        new Cliente(1, "Chaves", "123"),
-                        new Cliente(2, "Kiko", "124"),
-                        new Cliente(3, "Madruga", "125")
+                        new Cliente(1, "Chaves", "12345634598"),
+                        new Cliente(2, "Kiko", "12412312321"),
+                        new Cliente(3, "Madruga", "12533344456")
                 )
         );
 

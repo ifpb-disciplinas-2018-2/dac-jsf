@@ -41,7 +41,7 @@ public class ClientesEmJDBC implements Clientes {
                     "INSERT INTO clientes VALUES (?,?);"
             );
             createStatement.setString(1, cliente.getNome());
-            createStatement.setString(2, cliente.getCpf());
+            createStatement.setString(2, cliente.getCpf().numero());
             createStatement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ClientesEmJDBC.class.getName()).log(Level.SEVERE, null, ex);

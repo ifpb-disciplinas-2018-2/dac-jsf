@@ -11,7 +11,8 @@ public class Cliente {
 
     private int id;
     private String nome;
-    private String cpf;
+//    private String cpf;
+    private CPF cpf;
 
     public Cliente() {
     }
@@ -23,7 +24,7 @@ public class Cliente {
     public Cliente(int id, String nome, String cpf) {
         this.id = id;
         this.nome = nome;
-        this.cpf = cpf;
+        this.cpf = new CPF(cpf);
     }
 
     public int getId() {
@@ -42,11 +43,11 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public String getCpf() {
+    public CPF getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(CPF cpf) {
         this.cpf = cpf;
     }
 

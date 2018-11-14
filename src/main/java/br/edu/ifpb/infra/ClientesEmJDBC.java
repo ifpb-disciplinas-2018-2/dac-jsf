@@ -2,6 +2,7 @@ package br.edu.ifpb.infra;
 
 import br.edu.ifpb.domain.Clientes;
 import br.edu.ifpb.domain.Cliente;
+import br.edu.ifpb.domain.Endereco;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -87,6 +88,16 @@ public class ClientesEmJDBC implements Clientes {
 
     @Override
     public void atualizar(Cliente cliente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Endereco> todosOsEnderecos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Endereco localizarEnderecoComRua(String rua) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -14,6 +14,8 @@ public class Cliente {
 //    private String cpf;
     private CPF cpf;
 
+    private Endereco endereco;
+
     public Cliente() {
     }
 
@@ -51,12 +53,21 @@ public class Cliente {
         this.cpf = cpf;
     }
 
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 19 * hash + this.id;
-        hash = 19 * hash + Objects.hashCode(this.nome);
-        hash = 19 * hash + Objects.hashCode(this.cpf);
+        int hash = 3;
+        hash = 41 * hash + this.id;
+        hash = 41 * hash + Objects.hashCode(this.nome);
+        hash = 41 * hash + Objects.hashCode(this.cpf);
+        hash = 41 * hash + Objects.hashCode(this.endereco);
         return hash;
     }
 
@@ -81,8 +92,12 @@ public class Cliente {
         if (!Objects.equals(this.cpf, other.cpf)) {
             return false;
         }
+        if (!Objects.equals(this.endereco, other.endereco)) {
+            return false;
+        }
         return true;
     }
     
+ 
 
 }

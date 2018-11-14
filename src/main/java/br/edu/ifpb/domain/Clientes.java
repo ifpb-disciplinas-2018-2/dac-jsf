@@ -1,4 +1,4 @@
- package br.edu.ifpb.domain;
+package br.edu.ifpb.domain;
 
 import br.edu.ifpb.domain.Cliente;
 import java.util.List;
@@ -17,8 +17,9 @@ public interface Clientes {
     public void remover(Cliente cli);
 
     public void atualizar(Cliente cliente);
-//    public List<Endereco> todosOsEnderecos();
-    // public Endereco localizarEnderecoComRua(String rua);
 
-    
+    public List<Endereco> todosOsEnderecos();
+
+    public Endereco localizarEnderecoComRua(String rua);
+
 }

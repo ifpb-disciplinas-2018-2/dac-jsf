@@ -1,3 +1,4 @@
-FROM tomcat
-COPY /target/dac-banco.war ${CATALINA_HOME}/webapps
-#VOLUME "/usr/local/tomcat/testes"
+#FROM payara/server-full
+#FROM payara/server-web
+FROM payara/micro
+COPY /target/dac-banco.war ${DEPLOY_DIR}

@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://xmlns.jcp.org/jsp/jstl/functions"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Facelet Title</title>
         <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
@@ -21,19 +22,19 @@
             Nome: <h:inputText value="#{controlodorDeClientes.cliente.nome}" class="blue-grey"/>
             CPF: <h:inputText value="#{controlodorDeClientes.cliente.cpf}"
                               converter="converter.CPF"
-                              />
-<!--                          converter="convert.CPF"
-                         validator="validator.CPF"     -->
-                              
+                              validator="validator.CPF"
+                              /> 
 
-<!--        <h:selectOneMenu value="{controladorDeIntegrante.integrante.endereco}" 
-                             converter="convert.Endereco"
-                             class="blue">
-                <f:selectItems value="{controladorDeIntegrante.listarTodosOsEnderecos()}"
+
+            <h:selectOneMenu value="#{controlodorDeClientes.cliente.endereco}" 
+                             converter="converter.Endereco"
+                             validator="validator.Endereco"
+                             >
+                <f:selectItems value="#{controlodorDeClientes.listarTodosOsEnderecos()}"
                                var="endereco"
-                               itemLabel="{endereco.rua}"
-                               class="blue-grey"/>
-            </h:selectOneMenu>-->
+                               itemLabel="#{endereco.rua}"
+                              />
+            </h:selectOneMenu>
 
             <h:commandButton value="salvar" action="#{controlodorDeClientes.salvar()}" rendered="#{not controlodorDeClientes.editando}"/>
             <h:commandButton value="cancelar" action="#{controlodorDeClientes.cancelar()}"/>
@@ -49,6 +50,7 @@
                 <h:column>#{c.id}</h:column>
                 <h:column>#{c.cpf.formatado()}</h:column>
                 <h:column>#{c.nome}</h:column>
+                <h:column>#{c.endereco.rua}</h:column>
                 <h:column>
                     <h:commandButton value="x" action="#{controlodorDeClientes.remover(c)}" />
                 </h:column>

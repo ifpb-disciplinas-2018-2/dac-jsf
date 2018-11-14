@@ -31,7 +31,7 @@ public class CPF {
     }
 
     public boolean ehValido() {
-        return this.numero.trim().length() == 11;
+        return this.numero.length() == 11;
     }
 
 }
